@@ -6,6 +6,10 @@ const jwt = require("jsonwebtoken");
 const SECRET_TOKEN = process.env.SECRET_TOKEN;
 const SECRET_REFRESH_TOKEN = process.env.SECRET_REFRESH_TOKEN;
 
+app.get('/',async (req,res)=>{
+  const user = await  userModel.find({});
+  return res.status(201).send(user)
+})
 // signup route
 app.post('/signup',async (req,res)=>{
     const { username, email, password } = req.body
@@ -17,7 +21,7 @@ app.post('/signup',async (req,res)=>{
     console.log(req.body);
     const hash = bcrypt.hashSync(password, 10);
     const user = await  userModel({  username, email, password:hash });
-    user.save()
+                 user.save()
   
     return res.status(201).send({user,message:"You have Signup Successfully"});
 })

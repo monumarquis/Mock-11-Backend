@@ -10,6 +10,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
 
 app.use("/user",User)
+
 const PORT = process.env.PORT || 8080
 
 app.get('/',(req,res)=>{
