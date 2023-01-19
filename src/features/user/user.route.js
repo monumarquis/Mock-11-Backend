@@ -7,9 +7,6 @@ const SECRET_TOKEN = process.env.SECRET_TOKEN;
 const SECRET_REFRESH_TOKEN = process.env.SECRET_REFRESH_TOKEN;
 
 // signup route
-app.get("/",(req,res)=>{
-return res.send("User route")
-})
 app.post('/signup',async (req,res)=>{
     const { username, email, password } = req.body
     if(!username || !email || !password ) return res.status(403).send({message:"Please Enter All Credential"})
