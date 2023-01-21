@@ -10,6 +10,7 @@ app.get('/',async (req,res)=>{
   const user = await  userModel.find({});
   return res.status(201).send(user)
 })
+
 // signup route
 app.post('/signup',async (req,res)=>{
     const { username, email, password } = req.body
